@@ -1,92 +1,92 @@
 # Site settings
-title: OSS Development
-description: >- # site description
-  He's writing in Bahasa about web technology and experience as a journal 
-  for documentation things that he learned, meet him <a href="https://github.com/piharpi" target="_blank" rel="noopener">@github</a>.
-lang: en-US # default lang
-timezone: Asia/Jakarta # set your timezone
-image: assets/img/ogp.png # This image used for Open Graph more info https://ogp.me/
-repo: https://github.com/piharpi/jekyll-klise # site repo [optional]
-mode: dark # default theme "dark" | "light"
+title: OSS development
+description: 'Artificial Intelligence trends and concepts made easy.' # this means to ignore newlines until "baseurl:"
+permalink: ':title:output_ext'
+baseurl: "/" # the subpath of your site, e.g. /blog
+url: "https://the-mvm.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+logo: "/assets/img/branding/MVM-logo-full.svg"
+logo-icon: "/assets/img/branding/MVM-symbol.svg"
+logo-icon-SEO: "/assets/img/branding/MVM-symbol-black.png" # must be a non SVG file
 
-# Profile settings
-author:
-  name: Jekyll Klisé # author name
-  bio: >- # tell to the world
-    The minimalist Jekyll theme, light and dark mode support, for running a personal site and blog, 
-    meet Klisé theme at <a href="https://github.com/piharpi/jekyll-klise" target="_blank" rel="noopener">@github</a>.
-  username: username # general username
-  github: github_username # github username
-  twitter: twitter_username # twitter username
-  facebook: facebook_username # facebook username
-  email: your-email@email.com # email adress
-  avatar: /assets/img/avatar.jpg # change with your own avatar
+# Night/Dark mode
+# Default mode is "auto", "auto" is for auto nightshift
+# (19:00 - 07:00), "manual" is for manual toggle, and
+# "on/off" is for default on/off.
+#
+# Whatever the user's choice is, it will supersede the
+# default setting of the site and be kept during the
+# visit (session). Only the dark mode setting is "manual",
+# it will be always kept on every visit (i.e. no matter
+# the browser is closed or not)
+night_mode: "auto"
 
-# URL settings
-url: "https://klise.now.sh" #
-baseurl:
-permalink: /:title/
-google_analytics: # leave it blank if not wish
-fb_appid:
+logo-dark: "/assets/img/branding/MVM-logo-full-dark.svg"
+highlight_theme: syntax-base16.monokai.dark # select a dark theme for the code highlighter if needed
 
-# Collection setting
-collections:
-  posts:
-    output: true
+# Author settings
+author: Armando Maynez # add your name
+author-pic: Myself_Neon_grey.jpg
+about-author: Engineer, industry executive, research enthusiast. Avid learner with diverse interests in coding, machine learning, artificial intelligence and reinforcement learning. 17+ years of experience working in multinational corporations.
 
-# Markdown settings
-markdown: kramdown
-highlighter: rouge
-kramdown:
-  syntax_highlighter: rouge
+# Contact links
+email: armando.maynez@gmail.com # Add your Email address
+phone: # Add your Phone number
+website: https://amaynez.github.io # Add your website
+linkedin: amaynez # Add your Linkedin handle
+github: amaynez # Add your Github handle
+twitter: '@MvmThe' # Add your Twitter handle
+bandcamp: armandomaynez # Add your Bandcamp username
+stackoverflow: stackoverflow # Add your stackoverflow account
 
-# Default front matter
-defaults:
-  - scope:
-      path: ""
-    values:
-      layout: post
-      comments: false
+# Newsletter
+mailchimp: "https://github.us1.list-manage.com/subscribe/post?u=8ece198b3eb260e6838461a60&amp;id=397d90b5f4"
 
-# Jekyll Compose default front matter
-jekyll_compose:
-  post_default_front_matter:
-    modified:
-    tags: []
-    description:
-  draft_default_front_matter:
-    modified:
-    tags: []
-    description:
+# Tracker
+analytics: G-R8SZS2YBZK
+fbadmin: ar.maybach
 
-# Homepage limit posts
-number_of_posts: 5
+# Paginate
+paginate: 6
+paginate_path: 'page:num'
+words_per_minute: 200
+
+extensions:
+  mermaid_enable: true
+
+# Comments
+comments: utteranc  #[disqus, utteranc]
+comments_opts:
+  comments_curtain: yes # leave empty to show the disqus embed directly
+  repo: # The GitHub repo URL.  https://utteranc.es/
+  issue_term: # The GitHub issue label
+  label: # The GitHub comments label
+  theme: # The GitHub comment's there. e.g. github-dark
+  # Disqus
+  discus_identifier: # Add your discus identifier
 
 # Build settings
-# theme: klise
+markdown: kramdown
+mathjax: true
+highlighter: rouge
+compress_html:
+  clippings: all
+  comments: all
+  startings: [html, head, body]
+
+# Outputting
+timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+
+category_archive:
+  type: liquid
+  path: /categories/
+
 sass:
   style: compressed
 
-include:
-  - _redirects
-  - .htaccess
-
-exclude:
-  - CNAME
-  - Gemfile
-  - Gemfile.lock
-  - LICENSE
-  - CHANGELOG.md
-  - README.md
-  - node_modules
-  - CODE_OF_CONDUCT.md
-  - CONTRIBUTING.md
-  - lighthouse.png
-  - klise-*.gem
-  - klise.gemspec
-
-# Plugins
 plugins:
+  - jekyll-paginate
   - jekyll-feed
   - jekyll-sitemap
-  - jekyll-postfiles
+
+include: [_pages]
+exclude: ["node_modules", "gulpfile.js", "package.json", "yarn.lock", "package-lock.json", "assets/css/sass/"]
